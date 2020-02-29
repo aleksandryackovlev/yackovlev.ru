@@ -1,0 +1,54 @@
+@import './reset.css';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: normal;
+  letter-spacing: 0;
+  color: #333333;
+  background: #ffffff;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+a {
+  color: #0288d1;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0288d1;
+}
+
+b,
+strong {
+  color: #333333;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  margin: 0;
+}

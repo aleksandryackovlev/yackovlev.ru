@@ -1,0 +1,46 @@
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blogTitle {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+}
+
+.title {
+  font-size: 19px;
+  color: #999;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+.subTitle {
+  margin-left: 20px;
+  font-size: 12px;
+  color: #333;
+}
+
+.socialIcon {
+  color: #222;
+}
+
+.socialLink {
+  margin-left: 15px;
+}
+
+.socialLink:hover .socialIcon {
+  color: #333;
+}
