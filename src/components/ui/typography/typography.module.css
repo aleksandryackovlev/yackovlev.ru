@@ -1,0 +1,81 @@
+.typography {
+  margin: 0;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.typography_align_center {
+  text-align: center;
+}
+
+.typography_align_right {
+  text-align: right;
+}
+
+.typography_align_justify {
+  text-align: justify;
+}
+
+.typography_align_left {
+  text-align: left;
+}
+
+.typography_color_normal {
+  color: #333;
+}
+
+.typography_color_normal svg {
+  fill: #333;
+}
+
+.typography_color_primary {
+  color: #000;
+}
+
+.typography_color_primary svg {
+  fill: #000;
+}
+
+.typography_color_secondary {
+  color: #999;
+}
+
+.typography_color_secondary svg {
+  fill: #999;
+}
+
+.typography_inline_yes {
+  display: inline;
+}
+
+.typography_marginBottom_none {
+  margin-bottom: 0;
+}
+
+.typography_marginBottom_xs {
+  margin-bottom: 5px;
+}
+
+.typography_marginBottom_s {
+  margin-bottom: 10px;
+}
+
+.typography_marginBottom_m {
+  margin-bottom: 15px;
+}
+
+.typography_marginBottom_l {
+  margin-bottom: 20px;
+}
+
+.typography_marginBottom_xl {
+  margin-bottom: 30px;
+}
+
+.typography_noWrap_yes {
+  white-space: nowrap;
+}
+
+.typography_upper_yes {
+  text-transform: uppercase;
+}

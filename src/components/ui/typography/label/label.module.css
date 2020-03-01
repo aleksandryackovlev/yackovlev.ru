@@ -1,0 +1,19 @@
+.label_font_s {
+  font-size: 12px;
+}
+
+.label_font_m {
+  font-size: 14px;
+}
+
+.label_font_l {
+  font-size: 16px;
+}
+
+.label_font_xl {
+  font-size: 19px;
+}
+
+.label_bold_yes {
+  font-weight: bold;
+}

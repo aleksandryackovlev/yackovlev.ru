@@ -1,0 +1,19 @@
+.paragraph {
+  word-wrap: break-word;
+}
+
+.paragraph_font_s {
+  font-size: 12px;
+}
+
+.paragraph_font_m {
+  font-size: 14px;
+}
+
+.paragraph_font_l {
+  font-size: 16px;
+}
+
+.paragraph_bold_yes {
+  font-weight: bold;
+}
