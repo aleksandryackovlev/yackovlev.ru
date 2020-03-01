@@ -1,0 +1,168 @@
+.row {
+  width: auto;
+  display: flex;
+}
+
+.col {
+  box-sizing: border-box;
+
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+.row_wrap_yes {
+  flex-wrap: wrap;
+}
+
+/* start: different alignment */
+.row_alignItems_start {
+  align-items: flex-start;
+}
+
+.row_alignItems_end {
+  align-items: flex-end;
+}
+
+.row_alignItems_center {
+  align-items: center;
+}
+
+.col_alignSelf_start {
+  align-self: flex-start;
+}
+
+.col_alignSelf_end {
+  align-self: flex-end;
+}
+
+.col_alignSelf_center {
+  align-self: center;
+}
+
+/* end: different alignment */
+
+/* start: different justifying */
+.row_justify_start {
+  justify-content: flex-start;
+}
+
+.row_justify_end {
+  justify-content: flex-end;
+}
+
+.row_justify_center {
+  justify-content: center;
+}
+
+.row_justify_spaceBetween {
+  justify-content: space-between;
+}
+
+.row_justify_spaceAround {
+  justify-content: space-around;
+}
+
+/* end: different justifying */
+
+/* start: set each col width */
+.col_width_auto {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.col_width_1 {
+  flex: 0 0 calc(1 / 12 * 100%);
+  max-width: calc(1 / 12 * 100%);
+}
+
+.col_width_2 {
+  flex: 0 0 calc(2 / 12 * 100%);
+  max-width: calc(2 / 12 * 100%);
+}
+
+.col_width_3 {
+  flex: 0 0 calc(3 / 12 * 100%);
+  max-width: calc(3 / 12 * 100%);
+}
+
+.col_width_4 {
+  flex: 0 0 calc(4 / 12 * 100%);
+  max-width: calc(4 / 12 * 100%);
+}
+
+.col_width_5 {
+  flex: 0 0 calc(5 / 12 * 100%);
+  max-width: calc(5 / 12 * 100%);
+}
+
+.col_width_6 {
+  flex: 0 0 calc(6 / 12 * 100%);
+  max-width: calc(6 / 12 * 100%);
+}
+
+.col_width_7 {
+  flex: 0 0 calc(7 / 12 * 100%);
+  max-width: calc(7 / 12 * 100%);
+}
+
+.col_width_8 {
+  flex: 0 0 calc(8 / 12 * 100%);
+  max-width: calc(8 / 12 * 100%);
+}
+
+.col_width_9 {
+  flex: 0 0 calc(9 / 12 * 100%);
+  max-width: calc(9 / 12 * 100%);
+}
+
+.col_width_10 {
+  flex: 0 0 calc(10 / 12 * 100%);
+  max-width: calc(10 / 12 * 100%);
+}
+
+.col_width_11 {
+  flex: 0 0 calc(11 / 12 * 100%);
+  max-width: calc(11 / 12 * 100%);
+}
+
+/* end: set each col width */
+
+/* start: set different paddings */
+.row_paddings_s {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.row_paddings_s > .col {
+  padding: 0 5px;
+}
+
+.row_paddings_m {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.row_paddings_m > .col {
+  padding: 0 10px;
+}
+
+.row_paddings_l {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.row_paddings_l > .col {
+  padding: 0 20px;
+}
+
+.row_paddings_none {
+  margin: 0;
+}
+
+.row_paddings_none > .col {
+  padding: 0;
+}
+
+/* end: set different paddings */
