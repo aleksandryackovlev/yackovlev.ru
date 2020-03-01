@@ -2,31 +2,43 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-import logo from './logo.png';
-import styles from './header.module.css';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub as github, faLinkedin as linkedin, faTwitter as twitter } from '@fortawesome/free-brands-svg-icons'
 
+
+import Typography from '../../ui/typography';
+import { Row, Column } from '../../ui/grid';
+
+import logo from './logo.png';
+import styles from './header.module.css';
+
 const icons = { github, twitter, linkedin };
 
-const Header = ({ social }) => (
+const Header = ({ social, author, description }) => (
   <header className={styles.header}>
-    <div className={styles.grid}>
-      <div className={styles.blogTitle}>
-        <Link to="/">
-          <img src={logo} className={styles.logo} />
-        </Link>
-        <div>
-          <div className={styles.title}>
-             Alex Yackovlev
-          </div>
-          <div className={styles.subTitle}>
-            Personal blog
-          </div>
-        </div>
-      </div>
-      <div className={styles.socials}>
+    <Row justify="spaceBetween" alignItems="center">
+      <Column width="auto">
+        <Row alignItems="center" paddings="s">
+          <Column width="auto">
+            <Link to="/">
+              <img src={logo} className={styles.logo} />
+            </Link>
+          </Column>
+          <Column width="auto">
+            <div>
+              <Typography component="label" color="secondary" isCaps fontSize="xl">
+                {author}
+              </Typography>
+            </div>
+            <div>
+              <Typography component="label" fontSize="s">
+                {description}
+              </Typography>
+            </div>
+          </Column>
+        </Row>
+      </Column>
+      <Column width="auto">
         {social.map(({ icon, link }) => (
           <a
             href={link}
@@ -41,8 +53,8 @@ const Header = ({ social }) => (
             />
           </a>
         ))}
-      </div>
-    </div>
+      </Column>
+    </Row>
   </header>
 )
 

@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import React from "react"
 
 import Container from '../container';
+import Typography from '../../ui/typography';
+import { Column, Row } from '../../ui/grid';
 
 import logo from './logo.png';
 import styles from './footer.module.css';
@@ -12,16 +14,32 @@ import { faGithub as github, faLinkedin as linkedin, faTwitter as twitter } from
 
 const icons = { github, twitter, linkedin };
 
-const Header = ({ social }) => (
+const Header = ({ social, author, description }) => (
   <footer className={styles.footer}>
     <Container>
-      <div className={styles.grid}>
-        <div>
-          <Link to="/">
-            <img src={logo} className={styles.logo} />
-          </Link>
-        </div>
-        <div className={styles.socials}>
+      <Row justify="spaceBetween" alignItems="center">
+        <Column width="auto">
+          <Row alignItems="center" paddings="s">
+            <Column width="auto">
+              <Link to="/">
+                <img src={logo} className={styles.logo} />
+              </Link>
+            </Column>
+            <Column width="auto">
+              <div>
+                <Typography component="label" color="secondary" isCaps fontSize="xl">
+                  {author}
+                </Typography>
+              </div>
+              <div>
+                <Typography component="label" fontSize="s">
+                  {description}
+                </Typography>
+              </div>
+            </Column>
+          </Row>
+        </Column>
+        <Column width="auto">
           {social.map(({ icon, link }) => (
             <a
               href={link}
@@ -36,8 +54,8 @@ const Header = ({ social }) => (
               />
             </a>
           ))}
-        </div>
-      </div>
+        </Column>
+      </Row>
       <div className={styles.copyright}>
         © {new Date().getFullYear()}, Aleksandr Yackovlev
       </div>

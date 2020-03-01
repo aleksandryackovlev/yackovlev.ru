@@ -11,8 +11,9 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import '../../styles/base.css';
 
-import Container from './container';
+import { Column, Row } from '../ui/grid';
 
+import Container from './container';
 import Header from "./header"
 import Footer from "./footer"
 import styles from "./layout.module.css"
@@ -26,6 +27,8 @@ const Layout = ({ children }) => {
             icon
             link
           }
+          author
+          description
         }
       }
     }
@@ -34,14 +37,21 @@ const Layout = ({ children }) => {
   return (
     <div className={styles.layout}>
       <Container>
-        <Header social={data.site.siteMetadata.social} />
+        <Header {...data.site.siteMetadata} />
       </Container>
       <div className={styles.content}>
         <Container>
-          <main>{children}</main>
+          <Row paddings="l">
+            <Column width="8">
+              <main>{children}</main>
+            </Column>
+            <Column width="4">
+              Sidebar
+            </Column>
+          </Row>
         </Container>
       </div>
-      <Footer social={data.site.siteMetadata.social} />
+      <Footer {...data.site.siteMetadata} />
     </div>
   )
 }
