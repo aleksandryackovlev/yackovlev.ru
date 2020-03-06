@@ -26,15 +26,15 @@ button {
 }
 
 a {
-  color: #0288d1;
-  text-decoration: none;
+  color: #000;
+  text-decoration: underline;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
-  text-decoration: underline;
-  color: #0288d1;
+  text-decoration: none;
+  color: #000;
 }
 
 b,
