@@ -26,10 +26,27 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
     return;
   }
 
+  const posts = result.data.allMarkdownRemark.nodes;
+  const count = result.data.allMarkdownRemark.nodes.length;
 
   createPage({
     path: '/',
     component: path.resolve(__dirname, 'src/templates/blog-list.js'),
-    context: { posts: result.data.allMarkdownRemark.nodes.map(({ frontmatter }) => frontmatter) }
+    context: { posts: posts.map(({ frontmatter }) => frontmatter) }
   });
+
+  posts.forEach(({ html, frontmatter }, index) => {
+    createPage({
+      path: `/${frontmatter.id}`,
+      component: path.resolve(__dirname, 'src/templates/blog-item.js'),
+      context: {
+        html,
+        ...frontmatter,
+        pagination: {
+          prev: index === 0 ? null : `/${posts[index - 1].frontmatter.id}`,
+          next: index < count - 1 ? `/${posts[index + 1].frontmatter.id}` : null ,
+        }
+      }
+    });
+  })
 };
