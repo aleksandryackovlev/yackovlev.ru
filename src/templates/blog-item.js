@@ -17,7 +17,8 @@ const {
     title,
     date,
     tags,
-    pagination
+    pagination,
+    relatedPosts,
   },
 } = props;
 console.log(props);
@@ -90,6 +91,27 @@ return (
             </Column>
           </Row>
         </Box>
+        {!!relatedPosts && !!relatedPosts.length && (
+          <Box paddingTop="xl">
+            <Box paddingTop="xl" borderTop="primary">
+              <Typography component="title" level={2} fontSize="l" marginBottom="l">
+                Related posts:
+              </Typography>
+              <Row paddings="l">
+                {relatedPosts.map(({ node: { frontmatter: { id, title, description }} }) => (
+                  <Column width="4">
+                    <Typography component="title" level={3} fontSize="s">
+                      {title}
+                    </Typography>
+                    <Typography>
+                      {description}
+                    </Typography>
+                  </Column>
+                ))}
+              </Row>
+            </Box>
+          </Box>
+        )}
     </Box>
   </Layout>
 );

@@ -40,27 +40,53 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
     return;
   }
 
-  const posts = result.data.allMarkdownRemark.edges;
-  const count = posts.length;
+  const posts = await Promise.all(result.data.allMarkdownRemark.edges.map(
+    async ({ node: { html, frontmatter }, next, previous }) => {
+      const relatedPosts = await graphql(`
+        {
+          allMarkdownRemark(filter: {frontmatter: {tags: {in: [${frontmatter.tags.reduce((res, tag) => `${res}, "${tag}"`, '')}"Cucumber"]}, id: {ne: "${frontmatter.id}"}}}, limit: 3, sort: {fields: frontmatter___date}) {
+            edges {
+              node {
+                html
+                frontmatter {
+                  id
+                  date
+                  title
+                  description
+                }
+              }
+            }
+          }
+        }
+      `);
 
-  createPage({
-    path: '/',
-    component: path.resolve(__dirname, 'src/templates/blog-list.js'),
-    context: { posts: posts.map(({ node: { frontmatter } }) => frontmatter) }
-  });
+      console.log(frontmatter);
 
-  posts.forEach(({ node: { html, frontmatter }, next, previous }, index) => {
-    createPage({
-      path: `/${frontmatter.id}`,
-      component: path.resolve(__dirname, 'src/templates/blog-item.js'),
-      context: {
+      return {
         html,
         ...frontmatter,
         pagination: {
           previous,
           next,
-        }
-      }
+        },
+        relatedPosts: relatedPosts.data.allMarkdownRemark.edges,
+      };
+    }
+  ));
+
+  const count = posts.length;
+
+  createPage({
+    path: '/',
+    component: path.resolve(__dirname, 'src/templates/blog-list.js'),
+    context: { posts }
+  });
+
+  posts.forEach((post) => {
+    createPage({
+      path: `/${post.id}`,
+      component: path.resolve(__dirname, 'src/templates/blog-item.js'),
+      context: post,
     });
-  })
+  });
 };
