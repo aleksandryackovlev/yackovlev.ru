@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight as nextIcon, faChevronLeft as previousIcon } from '@fortawesome/free-solid-svg-icons'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -37,15 +39,53 @@ return (
           {tags.map((tag) => <Button type="secondary" key={tag} href={`/tag/${tag}`}>{tag}</Button>)}
         </Box>
         <Box paddingTop="xl">
-          <Row justify="spaceBetween">
-            <Column width="auto">
-              {pagination.prev && (
-                <Button href={pagination.prev}>Previous</Button>
+          <Row>
+            <Column width="6">
+              {pagination.previous && (
+                <Link to={`/${pagination.previous.frontmatter.id}`}>
+                  <Row alignItems="center" justify="start" paddings="s">
+                    <Column width="auto">
+                      <FontAwesomeIcon
+                        icon={previousIcon}
+                        size="lg"
+                      />
+                    </Column>
+                    <Column width="auto">
+                      <Typography align="left">
+                        <Typography component="label" isCaps fontSize="s">
+                          Previous
+                        </Typography>
+                      </Typography>
+                      <Typography marginBottom="none" align="left" component="title" level={3} fontSize="s">
+                        {pagination.previous.frontmatter.title}
+                      </Typography>
+                    </Column>
+                  </Row>
+                </Link>
               )}
             </Column>
-            <Column width="auto">
+            <Column width="6">
               {pagination.next && (
-                <Button href={pagination.next}>Next</Button>
+                <Link to={`/${pagination.next.frontmatter.id}`}>
+                  <Row alignItems="center" justify="end" paddings="s">
+                    <Column width="auto">
+                      <Typography align="right">
+                        <Typography component="label" isCaps fontSize="s">
+                          Next
+                        </Typography>
+                      </Typography>
+                      <Typography marginBottom="none" align="right" component="title" level={3} fontSize="s">
+                        {pagination.next.frontmatter.title}
+                      </Typography>
+                    </Column>
+                    <Column width="auto">
+                      <FontAwesomeIcon
+                        icon={nextIcon}
+                        size="lg"
+                      />
+                    </Column>
+                  </Row>
+                </Link>
               )}
             </Column>
           </Row>
