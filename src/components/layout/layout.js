@@ -7,12 +7,13 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import '../../styles/base.css';
 
 import { Column, Row } from '../ui/grid';
 import Typography from '../ui/typography';
+import Button from '../ui/button';
 import Box from '../ui/box';
 
 import Container from './container';
@@ -20,37 +21,6 @@ import Header from "./header";
 import Footer from "./footer";
 import styles from "./layout.module.css";
 import me from './yackovlev.png';
-
-const posts = [
-  {
-    id: 1,
-    title: 'BDD for frontend development',
-    date: 'February 1, 2020',
-    description: 'E-commerce sites have taken retail online and with such its audience. Once representatives used to be able to physically approach customers to see if they needed their assistance, now when visitors are on a website many companies are not aware of their existence unless the visitor makes contact.',
-    tags: ['cypress', 'cucumber', 'testing'],
-  },
-  {
-    id: 2,
-    title: 'Test automation with Cypress, Cucumber and Jenkins',
-    date: 'February 1, 2020',
-    description: 'E-commerce sites have taken retail online and with such its audience. Once representatives used to be able to physically approach customers to see if they needed their assistance, now when visitors are on a website many companies are not aware of their existence unless the visitor makes contact.',
-    tags: ['cypress', 'cucumber', 'testing'],
-  },
-  {
-    id: 3,
-    title: 'Some interesting title',
-    date: 'February 1, 2020',
-    description: 'E-commerce sites have taken retail online and with such its audience. Once representatives used to be able to physically approach customers to see if they needed their assistance, now when visitors are on a website many companies are not aware of their existence unless the visitor makes contact.',
-    tags: ['cypress', 'cucumber', 'testing'],
-  },
-  {
-    id: 4,
-    title: 'Some interesting title',
-    date: 'February 1, 2020',
-    description: 'E-commerce sites have taken retail online and with such its audience. Once representatives used to be able to physically approach customers to see if they needed their assistance, now when visitors are on a website many companies are not aware of their existence unless the visitor makes contact.',
-    tags: ['cypress', 'cucumber', 'testing'],
-  }
-];
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -73,6 +43,7 @@ const Layout = ({ children }) => {
             title
           }
         }
+        distinct(field: frontmatter___tags)
       }
     }
   `)
@@ -106,7 +77,7 @@ const Layout = ({ children }) => {
                   </Typography>
                 </Typography>
               </Box>
-              <Box paddingTop="m">
+              <Box paddingTop="m" borderBottom="primary">
                 <Typography align="center">
                   <Typography isCaps marginBottom="m" fontSize="s" component="title" level={3}>
                     Recent posts
@@ -115,15 +86,31 @@ const Layout = ({ children }) => {
                 {data.allMarkdownRemark.nodes.map(({ frontmatter: { id, title, date } }) => (
                   <Box key={id} paddingBottom="xs">
                     <Typography marginBottom="none" align="center" isBold>
-                      <a href={`/${id}`}>
+                      <Link to={`/${id}`}>
                         {title}
-                      </a>
+                      </Link>
                     </Typography>
                     <Typography align="center" color="secondary">
                       {date}
                     </Typography>
                   </Box>
                 ))}
+              </Box>
+              <Box paddingTop="m">
+                <Typography align="center">
+                  <Typography isCaps marginBottom="m" fontSize="s" component="title" level={3}>
+                    All tags
+                  </Typography>
+                </Typography>
+                <Row isWrap justify="center">
+                  {data.allMarkdownRemark.distinct.map((tag) => (
+                    <Column width="auto">
+                      <Box paddingBottom="s">
+                        <Button type="secondary" key={tag} href={`/tag/${tag}`}>{tag}</Button>
+                      </Box>
+                    </Column>
+                  ))}
+                </Row>
               </Box>
             </Column>
           </Row>
