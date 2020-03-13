@@ -98,13 +98,19 @@ return (
                 Related posts:
               </Typography>
               <Row paddings="l">
-                {relatedPosts.map(({ node: { frontmatter: { id, title, description }} }) => (
+                {relatedPosts.map(({ node: { timeToRead, frontmatter: { id, title, description }} }) => (
                   <Column width="4">
                     <Typography component="title" level={3} fontSize="s">
-                      {title}
+                      <Link to={`/${id}`}>{title}</Link>
+                    </Typography>
+                    <Typography color="secondary">
+                      Posted on {date}
                     </Typography>
                     <Typography>
                       {description}
+                    </Typography>
+                    <Typography align="right">
+                      <Button href={`/${id}`}>Read</Button>
                     </Typography>
                   </Column>
                 ))}

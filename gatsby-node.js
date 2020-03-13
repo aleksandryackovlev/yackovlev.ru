@@ -10,6 +10,7 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
         edges {
           node {
             html
+            timeToRead
             frontmatter {
               id
               date
@@ -47,7 +48,7 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
           allMarkdownRemark(filter: {frontmatter: {tags: {in: [${frontmatter.tags.reduce((res, tag) => `${res}, "${tag}"`, '')}"Cucumber"]}, id: {ne: "${frontmatter.id}"}}}, limit: 3, sort: {fields: frontmatter___date}) {
             edges {
               node {
-                html
+                timeToRead
                 frontmatter {
                   id
                   date
