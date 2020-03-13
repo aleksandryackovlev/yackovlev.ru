@@ -13,6 +13,10 @@ console.log(props);
 const {
   pageContext: {
     posts,
+    pagination: {
+      current,
+      total,
+    },
   },
 } = props;
 return (
@@ -35,12 +39,21 @@ return (
               {tags.map((tag) => <Button type="secondary" key={tag} href={`/tag/${tag}`}>{tag}</Button>)}
             </Column>
             <Column width="auto">
-              <Button href={`/${id}`}>More</Button>
+              <Button href={`/${id}`}>Read</Button>
             </Column>
           </Row>
         </Box>
       ))}
     </Box>
+    {total > 1 && (
+      <Box paddingBottom="xxl">
+        <Typography align="center">
+          {[...Array(total - 1).keys()].map((page) => (
+            <Button disabled={current === page + 1} type={current === page + 1 ? 'secondary': 'primary'} href={`/${page ? page + 1 : ''}`}>{page + 1}</Button>
+          ))}
+        </Typography>
+      </Box>
+    )}
   </Layout>
 );
 };

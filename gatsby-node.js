@@ -61,8 +61,6 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
         }
       `);
 
-      console.log(frontmatter);
-
       return {
         html,
         ...frontmatter,
@@ -76,12 +74,22 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
   ));
 
   const count = posts.length;
+  const postsPerPage = 10;
 
-  createPage({
-    path: '/',
-    component: path.resolve(__dirname, 'src/templates/blog-list.js'),
-    context: { posts }
-  });
+  for (let page = 0; page * postsPerPage < count; page += 1 ) {
+    const nextPageCount = (page + 1) * postsPerPage;
+    createPage({
+      path: `/${page ? page + 1 : ''}`,
+      component: path.resolve(__dirname, 'src/templates/blog-list.js'),
+      context: {
+        posts: posts.slice(page * postsPerPage, nextPageCount > count ? count : nextPageCount),
+        pagination: {
+          current: page + 1,
+          total: Math.ceil(count / postsPerPage),
+        }
+      }
+    });
+  }
 
   posts.forEach((post) => {
     createPage({

@@ -8,6 +8,7 @@ const Button = ({ href, type, children, ...rest }) => (
   <Link
     to={href}
     className={classNames(styles.button, styles[`button_type_${type}`])}
+    activeClassName={styles.button_active_yes}
     {...rest}
   >
     {children}
