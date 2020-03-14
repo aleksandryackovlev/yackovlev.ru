@@ -1,7 +1,7 @@
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
+import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGithub as github,
@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import Container from '../container';
+
 import Typography from '../../ui/typography';
 import Box from '../../ui/box';
 import { Column, Row } from '../../ui/grid';
@@ -19,7 +20,7 @@ import styles from './footer.module.css';
 
 const icons = { github, twitter, linkedin };
 
-const Header = ({ social, author, description }) => (
+const Footer = ({ social, author, description }) => (
   <footer>
     <Box paddingTop="xl" paddingBottom="m" background="secondary">
       <Container>
@@ -29,7 +30,7 @@ const Header = ({ social, author, description }) => (
               <Row alignItems="center" paddings="s">
                 <Column width="auto">
                   <Link to="/">
-                    <img src={logo} className={styles.logo} />
+                    <img src={logo} alt={author} className={styles.logo} />
                   </Link>
                 </Column>
                 <Column width="auto">
@@ -79,12 +80,15 @@ const Header = ({ social, author, description }) => (
   </footer>
 );
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+Footer.propTypes = {
+  social: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string,
+      link: PropTypes.string,
+    })
+  ).isRequired,
+  author: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
-Header.defaultProps = {
-  siteTitle: ``,
-};
-
-export default Header;
+export default Footer;

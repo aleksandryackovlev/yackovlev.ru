@@ -1,6 +1,7 @@
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { Link } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -27,7 +28,7 @@ const Header = ({ social, author, description }) => (
             <Row alignItems="center" paddings="s">
               <Column width="auto">
                 <Link to="/">
-                  <img src={logo} className={styles.logo} />
+                  <img src={logo} alt={author} className={styles.logo} />
                 </Link>
               </Column>
               <Column width="auto">
@@ -72,11 +73,14 @@ const Header = ({ social, author, description }) => (
 );
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
+  social: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string,
+      link: PropTypes.string,
+    })
+  ).isRequired,
+  author: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default Header;

@@ -65,7 +65,12 @@ const Layout = ({ children }) => {
             <Column width="3">
               <Box borderBottom="primary" paddingTop="xs" paddingBottom="m">
                 <Typography align="center">
-                  <img width="150" height="150" src={me} />
+                  <img
+                    width="150"
+                    alt={data.site.siteMetadata.author}
+                    height="150"
+                    src={me}
+                  />
                   <Typography
                     isCaps
                     marginBottom="xs"
