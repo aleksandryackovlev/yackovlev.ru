@@ -5,21 +5,16 @@ import classNames from 'classnames';
 
 import style from './title.module.css';
 
-const Title = ({
-  fontSize,
-  className,
-  level,
-  isBold,
-  children
-}) => createElement(`h${level}`, {
-  className: classNames(
-    style.title,
-    fontSize && style[`title_font_${fontSize}`],
-    isBold && style.title_bold_yes,
-    className
-  ),
-  children
-});
+const Title = ({ fontSize, className, level, isBold, children }) =>
+  createElement(`h${level}`, {
+    className: classNames(
+      style.title,
+      fontSize && style[`title_font_${fontSize}`],
+      isBold && style.title_bold_yes,
+      className
+    ),
+    children,
+  });
 
 Title.propTypes = {
   className: PropTypes.string,
@@ -28,15 +23,15 @@ Title.propTypes = {
   isBold: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ]).isRequired
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 };
 
 Title.defaultProps = {
   level: 2,
   className: '',
   fontSize: 'l',
-  isBold: false
+  isBold: false,
 };
 
 export default Title;

@@ -5,11 +5,7 @@ import classNames from 'classnames';
 
 import style from './grid.module.css';
 
-const Column = ({
-  children,
-  alignSelf,
-  width
-}) => (
+const Column = ({ children, alignSelf, width }) => (
   <div
     className={classNames(
       style.col,
@@ -39,13 +35,13 @@ Column.propTypes = {
   ]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+    PropTypes.node,
+  ]).isRequired,
 };
 
 Column.defaultProps = {
   alignSelf: 'none',
-  width: 'equalWidth'
+  width: 'equalWidth',
 };
 
 export default Column;

@@ -5,13 +5,7 @@ import classNames from 'classnames';
 
 import style from './grid.module.css';
 
-const Row = ({
-  children,
-  alignItems,
-  justify,
-  isWrap,
-  paddings
-}) => (
+const Row = ({ children, alignItems, justify, isWrap, paddings }) => (
   <div
     className={classNames(
       style.row,
@@ -33,17 +27,17 @@ Row.propTypes = {
     'end',
     'center',
     'spaceBetween',
-    'spaceAround'
+    'spaceAround',
   ]),
   paddings: PropTypes.oneOf(['none', 's', 'm', 'l']),
-  alignItems: PropTypes.oneOf(['flex', 'start', 'end', 'center'])
+  alignItems: PropTypes.oneOf(['flex', 'start', 'end', 'center']),
 };
 
 Row.defaultProps = {
   isWrap: false,
   alignItems: 'flex',
   justify: 'start',
-  paddings: 'none'
+  paddings: 'none',
 };
 
 export default Row;

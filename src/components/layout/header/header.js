@@ -1,10 +1,13 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub as github, faLinkedin as linkedin, faTwitter as twitter } from '@fortawesome/free-brands-svg-icons'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGithub as github,
+  faLinkedin as linkedin,
+  faTwitter as twitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 import Typography from '../../ui/typography';
 import Box from '../../ui/box';
@@ -29,7 +32,12 @@ const Header = ({ social, author, description }) => (
               </Column>
               <Column width="auto">
                 <div>
-                  <Typography component="label" color="secondary" isCaps fontSize="xl">
+                  <Typography
+                    component="label"
+                    color="secondary"
+                    isCaps
+                    fontSize="xl"
+                  >
                     {author}
                   </Typography>
                 </div>
@@ -61,14 +69,14 @@ const Header = ({ social, author, description }) => (
       </Box>
     </Box>
   </header>
-)
+);
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Header
+export default Header;

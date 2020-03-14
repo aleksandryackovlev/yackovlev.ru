@@ -13,7 +13,7 @@ const sizesPropTypes = PropTypes.oneOf([
   'm',
   'l',
   'xl',
-  'xxl'
+  'xxl',
 ]);
 
 const colorsPropTypes = PropTypes.oneOf([
@@ -36,7 +36,7 @@ const Box = ({
   borderLeft,
   withRadius,
   background,
-  children
+  children,
 }) => (
   <div
     className={classNames(
@@ -74,8 +74,8 @@ Box.propTypes = {
   background: colorsPropTypes,
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ]).isRequired
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 };
 
 Box.defaultProps = {
@@ -90,7 +90,7 @@ Box.defaultProps = {
   borderBottom: null,
   borderLeft: null,
   withRadius: false,
-  background: 'default'
+  background: 'default',
 };
 
 export default Box;

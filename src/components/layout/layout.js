@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import '../../styles/base.css';
 
@@ -17,9 +17,9 @@ import Button from '../ui/button';
 import Box from '../ui/box';
 
 import Container from './container';
-import Header from "./header";
-import Footer from "./footer";
-import styles from "./layout.module.css";
+import Header from './header';
+import Footer from './footer';
+import styles from './layout.module.css';
 import me from './yackovlev.png';
 
 const Layout = ({ children }) => {
@@ -35,7 +35,10 @@ const Layout = ({ children }) => {
           description
         }
       }
-      allMarkdownRemark(limit: 5, sort: {order: DESC, fields: frontmatter___date}) {
+      allMarkdownRemark(
+        limit: 5
+        sort: { order: DESC, fields: frontmatter___date }
+      ) {
         nodes {
           frontmatter {
             id
@@ -46,7 +49,7 @@ const Layout = ({ children }) => {
         distinct(field: frontmatter___tags)
       }
     }
-  `)
+  `);
 
   return (
     <div className={styles.layout}>
@@ -63,7 +66,13 @@ const Layout = ({ children }) => {
               <Box borderBottom="primary" paddingTop="xs" paddingBottom="m">
                 <Typography align="center">
                   <img width="150" height="150" src={me} />
-                  <Typography isCaps marginBottom="xs" fontSize="s" component="title" level={3}>
+                  <Typography
+                    isCaps
+                    marginBottom="xs"
+                    fontSize="s"
+                    component="title"
+                    level={3}
+                  >
                     {data.site.siteMetadata.author}
                   </Typography>
                   <Typography color="secondary" marginBottom="none">
@@ -73,40 +82,56 @@ const Layout = ({ children }) => {
                     Mail.ru Group
                   </Typography>
                   <Typography color="secondary" marginBottom="none">
-                    <a href="mailto:aleksandryackovlev">aleksandryackovlev@yandex.ru</a>
+                    <a href="mailto:aleksandryackovlev">
+                      aleksandryackovlev@yandex.ru
+                    </a>
                   </Typography>
                 </Typography>
               </Box>
               <Box paddingTop="m" borderBottom="primary">
                 <Typography align="center">
-                  <Typography isCaps marginBottom="m" fontSize="s" component="title" level={3}>
+                  <Typography
+                    isCaps
+                    marginBottom="m"
+                    fontSize="s"
+                    component="title"
+                    level={3}
+                  >
                     Recent posts
                   </Typography>
                 </Typography>
-                {data.allMarkdownRemark.nodes.map(({ frontmatter: { id, title, date } }) => (
-                  <Box key={id} paddingBottom="xs">
-                    <Typography marginBottom="none" align="center" isBold>
-                      <Link to={`/${id}`}>
-                        {title}
-                      </Link>
-                    </Typography>
-                    <Typography align="center" color="secondary">
-                      {date}
-                    </Typography>
-                  </Box>
-                ))}
+                {data.allMarkdownRemark.nodes.map(
+                  ({ frontmatter: { id, title, date } }) => (
+                    <Box key={id} paddingBottom="xs">
+                      <Typography marginBottom="none" align="center" isBold>
+                        <Link to={`/${id}`}>{title}</Link>
+                      </Typography>
+                      <Typography align="center" color="secondary">
+                        {date}
+                      </Typography>
+                    </Box>
+                  )
+                )}
               </Box>
               <Box paddingTop="m">
                 <Typography align="center">
-                  <Typography isCaps marginBottom="m" fontSize="s" component="title" level={3}>
+                  <Typography
+                    isCaps
+                    marginBottom="m"
+                    fontSize="s"
+                    component="title"
+                    level={3}
+                  >
                     All tags
                   </Typography>
                 </Typography>
                 <Row isWrap justify="center">
-                  {data.allMarkdownRemark.distinct.map((tag) => (
+                  {data.allMarkdownRemark.distinct.map(tag => (
                     <Column width="auto">
                       <Box paddingBottom="s">
-                        <Button type="secondary" key={tag} href={`/tag/${tag}`}>{tag}</Button>
+                        <Button type="secondary" key={tag} href={`/tag/${tag}`}>
+                          {tag}
+                        </Button>
                       </Box>
                     </Column>
                   ))}
@@ -118,11 +143,11 @@ const Layout = ({ children }) => {
       </div>
       <Footer {...data.site.siteMetadata} />
     </div>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

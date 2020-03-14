@@ -44,39 +44,18 @@ const Typography = ({
 };
 
 Typography.propTypes = {
-  align: PropTypes.oneOf([
-    'left',
-    'right',
-    'center',
-    'justify'
-  ]),
-  color: PropTypes.oneOf([
-    'inherit',
-    'normal',
-    'primary',
-    'secondary',
-  ]),
-  marginBottom: PropTypes.oneOf([
-    'none',
-    'xs',
-    's',
-    'm',
-    'l',
-    'xl'
-  ]),
+  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
+  color: PropTypes.oneOf(['inherit', 'normal', 'primary', 'secondary']),
+  marginBottom: PropTypes.oneOf(['none', 'xs', 's', 'm', 'l', 'xl']),
   isInline: PropTypes.bool,
   isNoWrap: PropTypes.bool,
   isCaps: PropTypes.bool,
   className: PropTypes.string,
-  component: PropTypes.oneOf([
-    'title',
-    'paragraph',
-    'label',
-  ]),
+  component: PropTypes.oneOf(['title', 'paragraph', 'label']),
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ]).isRequired
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 };
 
 Typography.defaultProps = {
@@ -87,7 +66,7 @@ Typography.defaultProps = {
   isCaps: false,
   marginBottom: 's',
   className: '',
-  component: null
+  component: null,
 };
 
 export default Typography;

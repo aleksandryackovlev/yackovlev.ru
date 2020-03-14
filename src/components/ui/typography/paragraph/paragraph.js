@@ -5,12 +5,7 @@ import classNames from 'classnames';
 
 import style from './paragraph.module.css';
 
-const Paragraph = ({
-  fontSize,
-  className,
-  isBold,
-  children
-}) => (
+const Paragraph = ({ fontSize, className, isBold, children }) => (
   <p
     className={classNames(
       style.paragraph,
@@ -25,22 +20,18 @@ const Paragraph = ({
 
 Paragraph.propTypes = {
   className: PropTypes.string,
-  fontSize: PropTypes.oneOf([
-    's',
-    'm',
-    'l'
-  ]),
+  fontSize: PropTypes.oneOf(['s', 'm', 'l']),
   isBold: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ]).isRequired
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 };
 
 Paragraph.defaultProps = {
   className: '',
   fontSize: 'm',
-  isBold: false
+  isBold: false,
 };
 
 export default Paragraph;
