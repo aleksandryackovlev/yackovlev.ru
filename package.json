@@ -25,6 +25,8 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.0",
@@ -47,6 +49,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "eslint .",
+    "commit": "git-cz",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
@@ -55,5 +58,10 @@
   },
   "bugs": {
     "url": "https://github.com/aleksandryackovlev/yackovlev.ru/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
