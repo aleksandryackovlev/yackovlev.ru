@@ -36,6 +36,20 @@ exports.createPages = async ({
             }
           }
         }
+        group(field: frontmatter___tags, limit: 1000) {
+          fieldValue
+          edges {
+            node {
+              frontmatter {
+                id
+                date
+                title
+                description
+                tags
+              }
+            }
+          }
+        }
       }
     }
   `);
@@ -104,6 +118,22 @@ exports.createPages = async ({
       },
     });
   }
+
+  const tagPosts = result.data.allMarkdownRemark.group;
+
+  tagPosts.forEach(({ fieldValue, edges }) => {
+    createPage({
+      path: `/tag/${fieldValue}`,
+      component: path.resolve(__dirname, 'src/templates/blog-list.js'),
+      context: {
+        posts: edges.map(({ node: { frontmatter } }) => frontmatter),
+        pagination: {
+          current: 1,
+          total: 1,
+        },
+      },
+    });
+  });
 
   posts.forEach(post => {
     createPage({
