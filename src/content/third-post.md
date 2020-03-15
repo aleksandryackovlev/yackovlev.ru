@@ -1,10 +1,9 @@
 ---
-id: "my-second-post"
-date: "2019-06-06"
-title: "My second blog post"
+id: "my-third-post"
+date: "2019-07-07"
+title: "My third blog post"
 description: "E-commerce sites have taken retail online and with such its audience. Once representatives used to be able to physically approach customers to see if they needed their assistance, now when visitors are on a website many companies are not aware of their existence unless the visitor makes contact."
 tags:
-  - Cucumber
   - Cypress
   - Jenkins
 ---
