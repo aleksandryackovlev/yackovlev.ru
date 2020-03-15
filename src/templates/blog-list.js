@@ -11,12 +11,24 @@ import { Row, Column } from '../components/ui/grid';
 
 const BlogList = ({
   pageContext: {
+    title: pageTitle,
     posts,
     pagination: { current, total },
   },
 }) => (
   <Layout>
     <SEO title="Home" />
+    {pageTitle && (
+      <Typography
+        marginBottom="l"
+        isBold
+        component="title"
+        fontSize="l"
+        level={1}
+      >
+        {pageTitle}
+      </Typography>
+    )}
     <Box paddingBottom="xxl">
       {posts.map(({ id, title, date, description, tags }, index) => (
         <Box
@@ -65,6 +77,7 @@ const BlogList = ({
 
 BlogList.propTypes = {
   pageContext: PropTypes.shape({
+    title: PropTypes.string,
     posts: PropTypes.arrayOf(PropTypes.object),
     pagination: PropTypes.shape({
       current: PropTypes.number,

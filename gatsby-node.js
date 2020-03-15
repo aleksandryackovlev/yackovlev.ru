@@ -127,6 +127,7 @@ exports.createPages = async ({
       component: path.resolve(__dirname, 'src/templates/blog-list.js'),
       context: {
         posts: edges.map(({ node: { frontmatter } }) => frontmatter),
+        title: `Tag: ${fieldValue.toLowerCase()}`,
         pagination: {
           current: 1,
           total: 1,
