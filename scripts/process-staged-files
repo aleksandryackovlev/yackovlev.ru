@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
 
-files=()
+jsFiles=()
+cssFiles=()
 
 while IFS= read -r file; do
-  files+=("$file")
+  jsFiles+=("$file")
 done < <(git diff --cached --name-only --diff-filter=ACMR "src/*.js" "src/*.jsx" "gatsby-*.js")
 
-if [[ "${#files[@]}" -eq 0 ]]; then
-  exit 0
+while IFS= read -r file; do
+  cssFiles+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACMR "src/*.css")
+
+if [[ "${#jsFiles[@]}" -ne 0 ]]; then
+  echo "${jsFiles[@]}" | xargs ./node_modules/.bin/prettier --write
+  echo "${jsFiles[@]}" | xargs git add
+  echo "${jsFiles[@]}" | xargs ./node_modules/.bin/eslint
 fi
 
-echo "${files[@]}" | xargs ./node_modules/.bin/prettier --write
-echo "${files[@]}" | xargs git add
-echo "${files[@]}" | xargs ./node_modules/.bin/eslint
+if [[ "${#cssFiles[@]}" -ne 0 ]]; then
+  echo "${cssFiles[@]}" | xargs ./node_modules/.bin/stylelint
+fi
