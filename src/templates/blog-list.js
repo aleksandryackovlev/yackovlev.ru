@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 
 import Typography from '../components/ui/typography';
 import Box from '../components/ui/box';
+import Link from '../components/ui/link';
 import Button from '../components/ui/button';
 import { Row, Column } from '../components/ui/grid';
 
@@ -37,7 +38,11 @@ const BlogList = ({
           paddingBottom="l"
           borderBottom="primary"
         >
-          <Typography component="title">{title}</Typography>
+          <Typography component="title">
+            <Link type="secondary" to={`/${id}`}>
+              {title}
+            </Link>
+          </Typography>
           <Typography color="secondary">Posted on {date}</Typography>
           <Typography component="paragraph" marginBottom="m">
             {description}

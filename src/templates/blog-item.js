@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'gatsby';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight as nextIcon,
@@ -16,6 +14,7 @@ import SEO from '../components/seo';
 import Typography from '../components/ui/typography';
 import Box from '../components/ui/box';
 import Button from '../components/ui/button';
+import Link from '../components/ui/link';
 import { Row, Column } from '../components/ui/grid';
 
 /* eslint-disable react/no-danger */
@@ -45,7 +44,10 @@ const BlogItem = ({
         <Row>
           <Column width="6">
             {pagination.previous && (
-              <Link to={`/${pagination.previous.frontmatter.id}`}>
+              <Link
+                type="secondary"
+                to={`/${pagination.previous.frontmatter.id}`}
+              >
                 <Row alignItems="center" justify="start" paddings="s">
                   <Column width="auto">
                     <FontAwesomeIcon icon={previousIcon} size="lg" />
@@ -72,7 +74,7 @@ const BlogItem = ({
           </Column>
           <Column width="6">
             {pagination.next && (
-              <Link to={`/${pagination.next.frontmatter.id}`}>
+              <Link type="secondary" to={`/${pagination.next.frontmatter.id}`}>
                 <Row alignItems="center" justify="end" paddings="s">
                   <Column width="auto">
                     <Typography align="right">
@@ -119,7 +121,9 @@ const BlogItem = ({
                 }) => (
                   <Column width="4">
                     <Typography component="title" level={3} fontSize="s">
-                      <Link to={`/${id}`}>{postTitle}</Link>
+                      <Link type="secondary" to={`/${id}`}>
+                        {postTitle}
+                      </Link>
                     </Typography>
                     <Typography color="secondary">Posted on {date}</Typography>
                     <Typography>{description}</Typography>

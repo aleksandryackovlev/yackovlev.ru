@@ -1,0 +1,21 @@
+link {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+link:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.link_type_secondary {
+  text-decoration: none;
+  color: #333;
+}
+
+.link_type_secondary:hover {
+  text-decoration: underline;
+  color: #333;
+}
