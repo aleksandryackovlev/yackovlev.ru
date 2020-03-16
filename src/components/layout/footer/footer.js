@@ -26,14 +26,14 @@ const Footer = ({ social, author, description }) => (
       <Container>
         <Box paddingBottom="m" borderBottom="secondary" background="none">
           <Row justify="spaceBetween" alignItems="center">
-            <Column width="auto">
+            <Column xs="auto">
               <Row alignItems="center" paddings="s">
-                <Column width="auto">
+                <Column xs="auto">
                   <Link to="/">
                     <img src={logo} alt={author} className={styles.logo} />
                   </Link>
                 </Column>
-                <Column width="auto">
+                <Column xs="auto">
                   <div>
                     <Typography
                       component="label"
@@ -52,7 +52,7 @@ const Footer = ({ social, author, description }) => (
                 </Column>
               </Row>
             </Column>
-            <Column width="auto">
+            <Column xs="auto">
               {social.map(({ icon, link }) => (
                 <a
                   href={link}

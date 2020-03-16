@@ -48,14 +48,14 @@ const BlogList = ({
             {description}
           </Typography>
           <Row justify="spaceBetween">
-            <Column width="auto">
+            <Column xs="auto">
               {tags.map(tag => (
                 <Button type="secondary" key={tag} href={`/tag/${tag}`}>
                   {tag}
                 </Button>
               ))}
             </Column>
-            <Column width="auto">
+            <Column xs="auto">
               <Button href={`/${id}`}>Read</Button>
             </Column>
           </Row>

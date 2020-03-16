@@ -42,17 +42,17 @@ const BlogItem = ({
       </Box>
       <Box paddingTop="xl">
         <Row>
-          <Column width="6">
+          <Column xs="6">
             {pagination.previous && (
               <Link
                 type="secondary"
                 to={`/${pagination.previous.frontmatter.id}`}
               >
                 <Row alignItems="center" justify="start" paddings="s">
-                  <Column width="auto">
+                  <Column xs="auto">
                     <FontAwesomeIcon icon={previousIcon} size="lg" />
                   </Column>
-                  <Column width="auto">
+                  <Column xs="auto">
                     <Typography align="left">
                       <Typography component="label" isCaps fontSize="s">
                         Previous
@@ -72,11 +72,11 @@ const BlogItem = ({
               </Link>
             )}
           </Column>
-          <Column width="6">
+          <Column xs="6">
             {pagination.next && (
               <Link type="secondary" to={`/${pagination.next.frontmatter.id}`}>
                 <Row alignItems="center" justify="end" paddings="s">
-                  <Column width="auto">
+                  <Column xs="auto">
                     <Typography align="right">
                       <Typography component="label" isCaps fontSize="s">
                         Next
@@ -92,7 +92,7 @@ const BlogItem = ({
                       {pagination.next.frontmatter.title}
                     </Typography>
                   </Column>
-                  <Column width="auto">
+                  <Column xs="auto">
                     <FontAwesomeIcon icon={nextIcon} size="lg" />
                   </Column>
                 </Row>
@@ -112,14 +112,14 @@ const BlogItem = ({
             >
               Related posts:
             </Typography>
-            <Row paddings="l">
+            <Row paddings="l" isWrap>
               {relatedPosts.map(
                 ({
                   node: {
                     frontmatter: { id, title: postTitle, description },
                   },
                 }) => (
-                  <Column width="4">
+                  <Column xs="12" sm="4">
                     <Typography component="title" level={3} fontSize="s">
                       <Link type="secondary" to={`/${id}`}>
                         {postTitle}

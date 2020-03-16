@@ -58,15 +58,15 @@ const Layout = ({ children }) => {
       </Container>
       <div className={styles.content}>
         <Container>
-          <Row paddings="l">
-            <Column width="9">
+          <Row paddings="l" isWrap>
+            <Column xs="12" lg="9">
               <main>{children}</main>
             </Column>
-            <Column width="3">
+            <Column xs="12" lg="3">
               <Box borderBottom="primary" paddingTop="xs" paddingBottom="m">
                 <Typography align="center">
                   <img
-                    width="150"
+                    xs="150"
                     alt={data.site.siteMetadata.author}
                     height="150"
                     src={me}
@@ -86,7 +86,7 @@ const Layout = ({ children }) => {
                   <Typography color="secondary" marginBottom="xs">
                     Mail.ru Group
                   </Typography>
-                  <Typography color="secondary" marginBottom="none">
+                  <Typography isTruncate color="secondary" marginBottom="none">
                     <a href="mailto:aleksandryackovlev">
                       aleksandryackovlev@yandex.ru
                     </a>
@@ -118,7 +118,7 @@ const Layout = ({ children }) => {
                   )
                 )}
               </Box>
-              <Box paddingTop="m">
+              <Box paddingTop="m" paddingBottom="xl">
                 <Typography align="center">
                   <Typography
                     isCaps
@@ -132,7 +132,7 @@ const Layout = ({ children }) => {
                 </Typography>
                 <Row isWrap justify="center">
                   {data.allMarkdownRemark.distinct.map(tag => (
-                    <Column width="auto">
+                    <Column xs="auto">
                       <Box paddingBottom="s">
                         <Button type="secondary" key={tag} href={`/tag/${tag}`}>
                           {tag}

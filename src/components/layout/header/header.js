@@ -24,14 +24,14 @@ const Header = ({ social, author, description }) => (
     <Box paddingBottom="m">
       <Box paddingTop="m" paddingBottom="m" borderBottom="primary">
         <Row justify="spaceBetween" alignItems="center">
-          <Column width="auto">
+          <Column xs="auto">
             <Row alignItems="center" paddings="s">
-              <Column width="auto">
+              <Column xs="auto">
                 <Link to="/">
                   <img src={logo} alt={author} className={styles.logo} />
                 </Link>
               </Column>
-              <Column width="auto">
+              <Column xs="auto">
                 <div>
                   <Typography
                     component="label"
@@ -50,7 +50,7 @@ const Header = ({ social, author, description }) => (
               </Column>
             </Row>
           </Column>
-          <Column width="auto">
+          <Column xs="auto">
             {social.map(({ icon, link }) => (
               <a
                 href={link}
