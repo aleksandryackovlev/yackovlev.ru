@@ -15,6 +15,7 @@ const Typography = ({
   isInline,
   isNoWrap,
   isCaps,
+  isTruncate,
   className,
   component,
   marginBottom,
@@ -28,6 +29,7 @@ const Typography = ({
     isInline && style.typography_inline_yes,
     isCaps && style.typography_upper_yes,
     isNoWrap && style.typography_noWrap_yes,
+    isTruncate && style.typography_truncate_yes,
     className
   );
 
@@ -50,6 +52,7 @@ Typography.propTypes = {
   isInline: PropTypes.bool,
   isNoWrap: PropTypes.bool,
   isCaps: PropTypes.bool,
+  isTruncate: PropTypes.bool,
   className: PropTypes.string,
   component: PropTypes.oneOf(['title', 'paragraph', 'label']),
   children: PropTypes.oneOfType([
@@ -64,6 +67,7 @@ Typography.defaultProps = {
   isInline: false,
   isNoWrap: false,
   isCaps: false,
+  isTruncate: false,
   marginBottom: 's',
   className: '',
   component: null,
