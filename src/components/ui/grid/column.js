@@ -5,21 +5,27 @@ import classNames from 'classnames';
 
 import style from './grid.module.css';
 
-const Column = ({ children, alignSelf, width }) => (
-  <div
-    className={classNames(
-      style.col,
-      style[`col_alignSelf_${alignSelf}`],
-      style[`col_width_${width}`]
-    )}
-  >
-    {children}
-  </div>
-);
+const Column = ({ children, alignSelf, xs, sm, md, lg, xl }) => {
+  return (
+    <div
+      className={classNames(
+        style.col,
+        style[`col_alignSelf_${alignSelf}`],
+        style[`col_xs_${xs}`],
+        sm && style[`col_sm_${sm}`],
+        md && style[`col_md_${md}`],
+        lg && style[`col_lg_${lg}`],
+        xl && style[`col_xl_${xl}`]
+      )}
+    >
+      {children}
+    </div>
+  );
+};
 
 Column.propTypes = {
   alignSelf: PropTypes.oneOf(['none', 'start', 'end', 'center']),
-  width: PropTypes.oneOf([
+  xs: PropTypes.oneOf([
     'equalWidth',
     'auto',
     '1',
@@ -32,6 +38,67 @@ Column.propTypes = {
     '8',
     '9',
     '11',
+    '12',
+  ]),
+  sm: PropTypes.oneOf([
+    'equalWidth',
+    'auto',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '11',
+    '12',
+  ]),
+  md: PropTypes.oneOf([
+    'equalWidth',
+    'auto',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '11',
+    '12',
+  ]),
+  lg: PropTypes.oneOf([
+    'equalWidth',
+    'auto',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '11',
+    '12',
+  ]),
+  xl: PropTypes.oneOf([
+    'equalWidth',
+    'auto',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '11',
+    '12',
   ]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
@@ -41,7 +108,11 @@ Column.propTypes = {
 
 Column.defaultProps = {
   alignSelf: 'none',
-  width: 'equalWidth',
+  xs: 'equalWidth',
+  sm: null,
+  md: null,
+  lg: null,
+  xl: null,
 };
 
 export default Column;
