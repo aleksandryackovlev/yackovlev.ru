@@ -1,0 +1,29 @@
+@media (max-width: 575px) {
+  .hidden_xs_yes {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+  .hidden_sm_yes {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .hidden_md_yes {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .hidden_lg_yes {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hidden_xl_yes {
+    display: none;
+  }
+}
