@@ -9,6 +9,7 @@ import Box from '../components/ui/box';
 import Link from '../components/ui/link';
 import Button from '../components/ui/button';
 import { Row, Column } from '../components/ui/grid';
+import Hidden from '../components/ui/hidden';
 
 const BlogList = ({
   pageContext: {
@@ -49,11 +50,13 @@ const BlogList = ({
           </Typography>
           <Row justify="spaceBetween">
             <Column xs="auto">
-              {tags.map(tag => (
-                <Button type="secondary" key={tag} href={`/tag/${tag}`}>
-                  {tag}
-                </Button>
-              ))}
+              <Hidden xs>
+                {tags.map(tag => (
+                  <Button type="secondary" key={tag} href={`/tag/${tag}`}>
+                    {tag}
+                  </Button>
+                ))}
+              </Hidden>
             </Column>
             <Column xs="auto">
               <Button href={`/${id}`}>Read</Button>
