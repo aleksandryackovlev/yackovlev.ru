@@ -14,6 +14,7 @@ import SEO from '../components/seo';
 import Typography from '../components/ui/typography';
 import Box from '../components/ui/box';
 import Button from '../components/ui/button';
+import Hidden from '../components/ui/hidden';
 import Link from '../components/ui/link';
 import { Row, Column } from '../components/ui/grid';
 
@@ -53,20 +54,24 @@ const BlogItem = ({
                     <FontAwesomeIcon icon={previousIcon} size="lg" />
                   </Column>
                   <Column xs="auto">
-                    <Typography align="left">
+                    <Typography marginBottom="none" align="left">
                       <Typography component="label" isCaps fontSize="s">
                         Previous
                       </Typography>
                     </Typography>
-                    <Typography
-                      marginBottom="none"
-                      align="left"
-                      component="title"
-                      level={3}
-                      fontSize="s"
-                    >
-                      {pagination.previous.frontmatter.title}
-                    </Typography>
+                    <Hidden xs sm>
+                      <Box paddingTop="xs">
+                        <Typography
+                          marginBottom="none"
+                          align="left"
+                          component="title"
+                          level={3}
+                          fontSize="s"
+                        >
+                          {pagination.previous.frontmatter.title}
+                        </Typography>
+                      </Box>
+                    </Hidden>
                   </Column>
                 </Row>
               </Link>
@@ -77,20 +82,24 @@ const BlogItem = ({
               <Link type="secondary" to={`/${pagination.next.frontmatter.id}`}>
                 <Row alignItems="center" justify="end" paddings="s">
                   <Column xs="auto">
-                    <Typography align="right">
+                    <Typography marginBottom="none" align="right">
                       <Typography component="label" isCaps fontSize="s">
                         Next
                       </Typography>
                     </Typography>
-                    <Typography
-                      marginBottom="none"
-                      align="right"
-                      component="title"
-                      level={3}
-                      fontSize="s"
-                    >
-                      {pagination.next.frontmatter.title}
-                    </Typography>
+                    <Hidden xs sm>
+                      <Box paddingTop="xs">
+                        <Typography
+                          marginBottom="none"
+                          align="right"
+                          component="title"
+                          level={3}
+                          fontSize="s"
+                        >
+                          {pagination.next.frontmatter.title}
+                        </Typography>
+                      </Box>
+                    </Hidden>
                   </Column>
                   <Column xs="auto">
                     <FontAwesomeIcon icon={nextIcon} size="lg" />
@@ -119,7 +128,7 @@ const BlogItem = ({
                     frontmatter: { id, title: postTitle, description },
                   },
                 }) => (
-                  <Column xs="12" sm="4">
+                  <Column xs="12" sm="12" md="4">
                     <Typography component="title" level={3} fontSize="s">
                       <Link type="secondary" to={`/${id}`}>
                         {postTitle}
