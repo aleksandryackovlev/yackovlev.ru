@@ -121,7 +121,7 @@ const BlogItem = ({
             >
               Related posts:
             </Typography>
-            <Row paddings="l" isWrap>
+            <Row paddings="l" alignItems="stretch" isWrap>
               {relatedPosts.map(
                 ({
                   node: {

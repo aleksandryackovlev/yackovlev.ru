@@ -26,6 +26,10 @@
   align-items: center;
 }
 
+.row_alignItems_stretch {
+  align-items: stretch;
+}
+
 .col_alignSelf_start {
   align-self: flex-start;
 }

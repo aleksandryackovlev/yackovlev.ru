@@ -30,7 +30,7 @@ Row.propTypes = {
     'spaceAround',
   ]),
   paddings: PropTypes.oneOf(['none', 's', 'm', 'l']),
-  alignItems: PropTypes.oneOf(['flex', 'start', 'end', 'center']),
+  alignItems: PropTypes.oneOf(['flex', 'start', 'end', 'center', 'stretch']),
 };
 
 Row.defaultProps = {
