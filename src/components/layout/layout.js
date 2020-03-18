@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
@@ -15,6 +8,7 @@ import { Column, Row } from '../ui/grid';
 import Typography from '../ui/typography';
 import Button from '../ui/button';
 import Box from '../ui/box';
+import Hidden from '../ui/hidden';
 
 import Container from './container';
 import Header from './header';
@@ -118,30 +112,36 @@ const Layout = ({ children }) => {
                   )
                 )}
               </Box>
-              <Box paddingTop="m" paddingBottom="xl">
-                <Typography align="center">
-                  <Typography
-                    isCaps
-                    marginBottom="m"
-                    fontSize="s"
-                    component="title"
-                    level={3}
-                  >
-                    All tags
+              <Hidden xs>
+                <Box paddingTop="m" paddingBottom="xl">
+                  <Typography align="center">
+                    <Typography
+                      isCaps
+                      marginBottom="m"
+                      fontSize="s"
+                      component="title"
+                      level={3}
+                    >
+                      All tags
+                    </Typography>
                   </Typography>
-                </Typography>
-                <Row isWrap justify="center">
-                  {data.allMarkdownRemark.distinct.map(tag => (
-                    <Column xs="auto">
-                      <Box paddingBottom="s">
-                        <Button type="secondary" key={tag} href={`/tag/${tag}`}>
-                          {tag}
-                        </Button>
-                      </Box>
-                    </Column>
-                  ))}
-                </Row>
-              </Box>
+                  <Row isWrap justify="center">
+                    {data.allMarkdownRemark.distinct.map(tag => (
+                      <Column xs="auto">
+                        <Box paddingBottom="s">
+                          <Button
+                            type="secondary"
+                            key={tag}
+                            href={`/tag/${tag}`}
+                          >
+                            {tag}
+                          </Button>
+                        </Box>
+                      </Column>
+                    ))}
+                  </Row>
+                </Box>
+              </Hidden>
             </Column>
           </Row>
         </Container>
