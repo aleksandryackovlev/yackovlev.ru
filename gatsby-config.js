@@ -1,22 +1,27 @@
 module.exports = {
   siteMetadata: {
-    title: 'Personal blog by Alex Yackovlev',
-    description: 'Thoughts on code',
-    author: `Alex Yackovlev`,
-    social: [
-      {
-        icon: 'github',
-        link: 'https://github.com/aleksandryackovlev',
-      },
-      {
-        icon: 'twitter',
-        link: 'https://twitter.com/_yackovlev',
-      },
-      {
-        icon: 'linkedin',
-        link: 'https://linkedin.com/aleksandryackovlev',
-      },
-    ],
+    title: `Personal blog by Alex Yackovlev`,
+    description: `Thoughts on code`,
+    author: {
+      name: `Alex Yackovlev`,
+      position: `Frontend developer`,
+      company: `Mail.ru Group`,
+      email: `aleksandryackovlev@yandex.ru`,
+      social: [
+        {
+          icon: `github`,
+          link: `https://github.com/aleksandryackovlev`,
+        },
+        {
+          icon: `twitter`,
+          link: `https://twitter.com/_yackovlev`,
+        },
+        {
+          icon: `linkedin`,
+          link: `https://linkedin.com/aleksandryackovlev`,
+        },
+      ],
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

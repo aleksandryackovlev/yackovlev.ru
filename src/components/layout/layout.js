@@ -21,11 +21,16 @@ const Layout = ({ children }) => {
     query SiteSocialLinksQuery {
       site {
         siteMetadata {
-          social {
-            icon
-            link
+          author {
+            name
+            position
+            company
+            email
+            social {
+              icon
+              link
+            }
           }
-          author
           description
         }
       }
@@ -61,7 +66,7 @@ const Layout = ({ children }) => {
                 <Typography align="center">
                   <img
                     xs="150"
-                    alt={data.site.siteMetadata.author}
+                    alt={data.site.siteMetadata.author.name}
                     height="150"
                     src={me}
                   />
@@ -72,17 +77,17 @@ const Layout = ({ children }) => {
                     component="title"
                     level={3}
                   >
-                    {data.site.siteMetadata.author}
+                    {data.site.siteMetadata.author.name}
                   </Typography>
                   <Typography color="secondary" marginBottom="none">
-                    Frontend developer
+                    {data.site.siteMetadata.author.position}
                   </Typography>
                   <Typography color="secondary" marginBottom="xs">
-                    Mail.ru Group
+                    {data.site.siteMetadata.author.company}
                   </Typography>
                   <Typography isTruncate color="secondary" marginBottom="none">
-                    <a href="mailto:aleksandryackovlev">
-                      aleksandryackovlev@yandex.ru
+                    <a href={`mailto:${data.site.siteMetadata.author.email}`}>
+                      {data.site.siteMetadata.author.email}
                     </a>
                   </Typography>
                 </Typography>

@@ -19,7 +19,7 @@ import styles from './header.module.css';
 
 const icons = { github, twitter, linkedin };
 
-const Header = ({ social, author, description }) => (
+const Header = ({ author, description }) => (
   <header>
     <Box paddingBottom="m">
       <Box paddingTop="m" paddingBottom="m" borderBottom="primary">
@@ -28,7 +28,7 @@ const Header = ({ social, author, description }) => (
             <Row alignItems="center" paddings="s">
               <Column xs="auto">
                 <Link to="/">
-                  <img src={logo} alt={author} className={styles.logo} />
+                  <img src={logo} alt={author.name} className={styles.logo} />
                 </Link>
               </Column>
               <Column xs="auto">
@@ -39,7 +39,7 @@ const Header = ({ social, author, description }) => (
                     isCaps
                     fontSize="xl"
                   >
-                    {author}
+                    {author.name}
                   </Typography>
                 </div>
                 <div>
@@ -51,7 +51,7 @@ const Header = ({ social, author, description }) => (
             </Row>
           </Column>
           <Column xs="auto">
-            {social.map(({ icon, link }) => (
+            {author.social.map(({ icon, link }) => (
               <a
                 href={link}
                 target="_blank"
@@ -73,13 +73,15 @@ const Header = ({ social, author, description }) => (
 );
 
 Header.propTypes = {
-  social: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.string,
-      link: PropTypes.string,
-    })
-  ).isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.shape({
+    name: PropTypes.string,
+    social: PropTypes.arrayOf(
+      PropTypes.shape({
+        icon: PropTypes.string,
+        link: PropTypes.string,
+      })
+    ),
+  }).isRequired,
   description: PropTypes.string.isRequired,
 };
 
