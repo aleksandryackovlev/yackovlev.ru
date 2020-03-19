@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../layout';
+import SEO from '../seo';
 
-import Typography from '../components/ui/typography';
-import Box from '../components/ui/box';
-import Link from '../components/ui/link';
-import Button from '../components/ui/button';
-import { Row, Column } from '../components/ui/grid';
-import Hidden from '../components/ui/hidden';
+import Typography from '../ui/typography';
+import Box from '../ui/box';
+import Link from '../ui/link';
+import Button from '../ui/button';
+import { Row, Column } from '../ui/grid';
+import Hidden from '../ui/hidden';
 
 const BlogList = ({
   pageContext: {

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
-import '../../styles/base.css';
-import '../../styles/prism.theme.css';
+import '../styles/base.css';
+import '../styles/prism.theme.css';
 
 import { Column, Row } from '../ui/grid';
 import Typography from '../ui/typography';

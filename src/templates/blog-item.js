@@ -7,16 +7,15 @@ import {
   faChevronLeft as previousIcon,
 } from '@fortawesome/free-solid-svg-icons';
 
-import Layout from '../components/layout';
+import Layout from '../layout';
+import SEO from '../seo';
 
-import SEO from '../components/seo';
-
-import Typography from '../components/ui/typography';
-import Box from '../components/ui/box';
-import Button from '../components/ui/button';
-import Hidden from '../components/ui/hidden';
-import Link from '../components/ui/link';
-import { Row, Column } from '../components/ui/grid';
+import Typography from '../ui/typography';
+import Box from '../ui/box';
+import Button from '../ui/button';
+import Hidden from '../ui/hidden';
+import Link from '../ui/link';
+import { Row, Column } from '../ui/grid';
 
 /* eslint-disable react/no-danger */
 const BlogItem = ({
