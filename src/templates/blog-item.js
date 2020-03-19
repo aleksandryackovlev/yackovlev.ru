@@ -26,7 +26,7 @@ const BlogItem = ({
     <SEO title="Home" />
     <Box paddingBottom="xxl">
       <Box paddingBottom="xl">
-        <Typography component="title" level="1">
+        <Typography component="title" level={1}>
           {title}
         </Typography>
         <Typography marginBottom="l" color="secondary">
@@ -128,7 +128,7 @@ const BlogItem = ({
                     frontmatter: { id, title: postTitle, description },
                   },
                 }) => (
-                  <Column xs="12" sm="12" md="4">
+                  <Column key={id} xs="12" sm="12" md="4">
                     <Typography component="title" level={3} fontSize="s">
                       <Link type="secondary" to={`/${id}`}>
                         {postTitle}

@@ -53,6 +53,7 @@ const Header = ({ author, description }) => (
           <Column xs="auto">
             {author.social.map(({ icon, link }) => (
               <a
+                key={link}
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"

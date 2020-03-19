@@ -103,7 +103,7 @@ Column.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
-  ]).isRequired,
+  ]),
 };
 
 Column.defaultProps = {
@@ -113,6 +113,7 @@ Column.defaultProps = {
   md: null,
   lg: null,
   xl: null,
+  children: null,
 };
 
 export default Column;

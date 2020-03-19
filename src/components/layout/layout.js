@@ -133,7 +133,7 @@ const Layout = ({ children }) => {
                   </Typography>
                   <Row isWrap justify="center">
                     {data.allMarkdownRemark.distinct.map(tag => (
-                      <Column xs="auto">
+                      <Column key={tag} xs="auto">
                         <Box paddingBottom="s">
                           <Button
                             type="secondary"

@@ -20,7 +20,7 @@ const Label = ({ fontSize, isBold, className, children }) => (
 
 Label.propTypes = {
   className: PropTypes.string,
-  fontSize: PropTypes.oneOf(['s', 'm', 'l']),
+  fontSize: PropTypes.oneOf(['s', 'm', 'l', 'xl']),
   isBold: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.node,
