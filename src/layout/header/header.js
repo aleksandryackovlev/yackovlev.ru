@@ -14,7 +14,8 @@ import Typography from '../../ui/typography';
 import Box from '../../ui/box';
 import { Row, Column } from '../../ui/grid';
 
-import logo from './logo.png';
+import logo from '../../images/logo.png';
+
 import styles from './header.module.css';
 
 const icons = { github, twitter, linkedin };

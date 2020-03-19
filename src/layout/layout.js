@@ -11,11 +11,12 @@ import Button from '../ui/button';
 import Box from '../ui/box';
 import Hidden from '../ui/hidden';
 
+import me from '../images/yackovlev.png';
+
 import Container from './container';
 import Header from './header';
 import Footer from './footer';
 import styles from './layout.module.css';
-import me from './yackovlev.png';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

@@ -15,7 +15,8 @@ import Typography from '../../ui/typography';
 import Box from '../../ui/box';
 import { Column, Row } from '../../ui/grid';
 
-import logo from './logo.png';
+import logo from '../../images/logo-white.png';
+
 import styles from './footer.module.css';
 
 const icons = { github, twitter, linkedin };
