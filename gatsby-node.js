@@ -21,6 +21,7 @@ exports.createPages = async ({
               title
               description
               tags
+              metaDescription
             }
           }
           next {
@@ -127,7 +128,7 @@ exports.createPages = async ({
       component: path.resolve(__dirname, 'src/templates/blog-list.js'),
       context: {
         posts: edges.map(({ node: { frontmatter } }) => frontmatter),
-        title: `Tag: ${fieldValue.toLowerCase()}`,
+        title: `Posts on tag: ${fieldValue.toLowerCase()}`,
         pagination: {
           current: 1,
           total: 1,

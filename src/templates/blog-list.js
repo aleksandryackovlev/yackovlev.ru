@@ -19,7 +19,7 @@ const BlogList = ({
   },
 }) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title={pageTitle || 'Thoughts on code'} />
     {pageTitle && (
       <Typography
         marginBottom="l"

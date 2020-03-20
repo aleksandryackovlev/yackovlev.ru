@@ -19,10 +19,18 @@ import { Row, Column } from '../ui/grid';
 
 /* eslint-disable react/no-danger */
 const BlogItem = ({
-  pageContext: { html, title, date, tags, pagination, relatedPosts },
+  pageContext: {
+    html,
+    metaDescription,
+    title,
+    date,
+    tags,
+    pagination,
+    relatedPosts,
+  },
 }) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title={title} description={metaDescription} />
     <Box paddingBottom="xxl">
       <Box paddingBottom="xl">
         <Typography component="title" level={1}>
@@ -154,6 +162,7 @@ BlogItem.propTypes = {
   pageContext: PropTypes.shape({
     html: PropTypes.string,
     title: PropTypes.string,
+    metaDescription: PropTypes.string,
     date: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
     pagination: PropTypes.shape({
