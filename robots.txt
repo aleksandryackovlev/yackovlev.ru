@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 Sitemap: https://yackovlev.ru/sitemap.xml
 Host: https://yackovlev.ru
